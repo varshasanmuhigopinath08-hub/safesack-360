@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SafeSack 360 — Presentation Deck | Team Twin Titans</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #090d16;
+            color: #f1f5f9;
+        }
+        .slide {
+            display: none;
+            min-height: 90vh;
+        }
+        .slide.active {
+            display: flex;
+            animation: fadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .glass-panel {
+            background: rgba(15, 23, 42, 0.75);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .screenshot-placeholder {
+            border: 2px dashed rgba(56, 189, 248, 0.35);
+            background: rgba(14, 165, 233, 0.04);
+            transition: all 0.2s ease;
+        }
+        .screenshot-placeholder:hover {
+            border-color: rgba(56, 189, 248, 0.7);
+            background: rgba(14, 165, 233, 0.08);
+        }
+        @media print {
+            body { background: white !important; color: black !important; }
+            .slide { display: block !important; page-break-after: always; min-height: 100vh; }
+            .controls, .nav-bar { display: none !important; }
+            .glass-panel { border: 1px solid #ccc; background: white; color: black; }
+        }
+    </style>
+</head>
+<body class="flex flex-col min-h-screen justify-between p-4 sm:p-8 selection:bg-emerald-500 selection:text-black">
+
+    <!-- Top Navigation & Slide Tracker -->
+    <header class="flex items-center justify-between max-w-7xl w-full mx-auto pb-4 border-b border-slate-800">
+        <div class="flex items-center space-x-3">
+            <span class="px-3 py-1 text-xs font-black uppercase tracking-widest bg-emerald-500 text-slate-950 rounded-lg shadow-sm">
+                SafeSack 360
+            </span>
+            <span class="text-xs text-slate-400 font-bold hidden sm:inline">Team: <span class="text-emerald-400 font-mono">Twin Titans</span></span>
+        </div>
+        <div class="flex items-center space-x-4">
+            <span class="text-xs font-mono font-bold text-slate-400">
+                Slide <span id="current-slide" class="text-emerald-400 text-sm">1</span> / <span id="total-slides">7</span>
+            </span>
+            <div class="flex items-center space-x-2">
+                <button onclick="prevSlide()" class="p-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-white text-xs font-bold transition flex items-center justify-center w-8 h-8">
+                    &larr;
+                </button>
+                <button onclick="nextSlide()" class="p-2 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 text-xs font-black transition flex items-center justify-center w-8 h-8">
+                    &rarr;
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Slide Presentation Container -->
+    <main class="max-w-7xl w-full mx-auto my-auto py-6">
+
+        <!-- SLIDE 1: TITLE & INTRO -->
+        <section class="slide active flex-col justify-center items-center text-center space-y-6" data-index="1">
+            <div class="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-black uppercase tracking-wider">
+                <span>🛡️ Occupational Safety & Edge AI Innovation</span>
+            </div>
+            
+            <h1 class="text-4xl sm:text-6xl font-black tracking-tight text-white max-w-4xl leading-tight">
+                SafeSack <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-400">360</span>
+            </h1>
+            
+            <p class="text-lg sm:text-xl text-slate-300 max-w-2xl font-medium leading-relaxed">
+                AI-Powered Hazard Detection & Chain-of-Custody Tracking for Municipal Dry Waste Workers
+            </p>
+
+            <!-- Team Details Card -->
+            <div class="glass-panel p-6 rounded-3xl max-w-lg w-full mt-4 text-left border border-slate-700/60 shadow-xl">
+                <div class="text-xs font-black uppercase tracking-wider text-emerald-400 mb-2">Team Details</div>
+                <div class="flex items-center justify-between py-2 border-b border-slate-800">
+                    <span class="text-slate-400 text-sm font-semibold">Team Name</span>
+                    <span class="text-white font-mono font-bold text-base">Twin Titans</span>
+                </div>
+                <div class="flex items-center justify-between py-2 border-b border-slate-800">
+                    <span class="text-slate-400 text-sm font-semibold">Members</span>
+                    <span class="text-emerald-300 font-bold text-sm">Sahana S &bull; Varsha Sanmuhi G</span>
+                </div>
+                <div class="flex items-center justify-between pt-2">
+                    <span class="text-slate-400 text-sm font-semibold">Domain</span>
+                    <span class="text-slate-300 text-xs font-medium">Edge Vision & Public Health Safety</span>
+                </div>
+            </div>
+
+            <!-- Screenshot Slot 1 -->
+            <div class="w-full max-w-2xl h-36 screenshot-placeholder rounded-2xl flex flex-col items-center justify-center p-4 text-center cursor-pointer">
+                <span class="text-2xl mb-1">📸</span>
+                <span class="text-xs font-bold text-sky-400 uppercase tracking-wider">Screenshot 1: Portal Login & Multilingual Language Switcher</span>
+                <span class="text-[11px] text-slate-400 mt-1">Capture `/login` showing EN | தமிழ் | हिन्दी buttons and role tabs</span>
+            </div>
+        </section>
+
+        <!-- SLIDE 2: PROBLEM STATEMENT -->
+        <section class="slide flex-col justify-center space-y-6" data-index="2">
+            <div class="border-b border-slate-800 pb-4">
+                <span class="text-xs font-black uppercase tracking-wider text-rose-400">The Problem</span>
+                <h2 class="text-3xl sm:text-4xl font-black text-white mt-1">The Hidden Perils of Municipal Dry Waste</h2>
+                <p class="text-sm text-slate-400 mt-1">Millions of informal waste workers handle unsorted waste with zero visibility or protection.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+                <div class="space-y-4">
+                    <div class="p-4 rounded-2xl bg-rose-500/10 border border-rose-500/20 text-rose-200">
+                        <h4 class="font-bold text-sm flex items-center space-x-2">
+                            <span>💉</span><span>Puncture & Chemical Hazards</span>
+                        </h4>
+                        <p class="text-xs text-rose-300/80 mt-1">Uncapped syringes, shattered glass bottles, toxic acids, and mercury CFL tubes cause chronic lacerations and infections.</p>
+                    </div>
+
+                    <div class="p-4 rounded-2xl bg-amber-500/10 border border-amber-500/20 text-amber-200">
+                        <h4 class="font-bold text-sm flex items-center space-x-2">
+                            <span>🔥</span><span>Battery & Explosion Risks</span>
+                        </h4>
+                        <p class="text-xs text-amber-300/80 mt-1">Damaged lithium batteries and aerosol canisters burst during truck transport and compaction, sparking landfill fires.</p>
+                    </div>
+
+                    <div class="p-4 rounded-2xl bg-slate-800/80 border border-slate-700/60 text-slate-300">
+                        <h4 class="font-bold text-sm flex items-center space-x-2">
+                            <span>🗣️</span><span>Literacy & Language Divide</span>
+                        </h4>
+                        <p class="text-xs text-slate-400 mt-1">Informal workers communicate in regional vernacular languages (Tamil, Hindi) and cannot parse complex written manuals.</p>
+                    </div>
+
+                    <div class="p-4 rounded-2xl bg-slate-800/80 border border-slate-700/60 text-slate-300">
+                        <h4 class="font-bold text-sm flex items-center space-x-2">
+                            <span>📦</span><span>The "Blind Transfer" Gap</span>
+                        </h4>
+                        <p class="text-xs text-slate-400 mt-1">Sacks travel without custody records; facility sorters have no advance warning of sack contents before handling.</p>
+                    </div>
+                </div>
+
+                <!-- Screenshot Slot 2 -->
+                <div class="h-80 screenshot-placeholder rounded-3xl flex flex-col items-center justify-center p-6 text-center">
+                    <span class="text-4xl mb-2">📸</span>
+                    <span class="text-sm font-bold text-sky-400 uppercase tracking-wider">Screenshot 2: Safety Incidents & Coordination Gaps</span>
+                    <span class="text-xs text-slate-400 mt-2 max-w-sm">Capture `/admin/incidents` displaying logged near-misses, needle injuries, and delayed transit warnings.</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 3: SYSTEM ARCHITECTURE & SOLUTION -->
+        <section class="slide flex-col justify-center space-y-6" data-index="3">
+            <div class="border-b border-slate-800 pb-4">
+                <span class="text-xs font-black uppercase tracking-wider text-emerald-400">Our Solution</span>
+                <h2 class="text-3xl sm:text-4xl font-black text-white mt-1">SafeSack 360 Architecture</h2>
+                <p class="text-sm text-slate-400 mt-1">Edge computer vision + cryptographic QR chain-of-custody + vernacular voice safety guidance.</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-4 gap-4">
+                <div class="glass-panel p-5 rounded-2xl border-t-2 border-emerald-400">
+                    <div class="text-2xl mb-2">1️⃣</div>
+                    <h4 class="font-black text-sm text-white">No-Touch Gate</h4>
+                    <p class="text-xs text-slate-400 mt-1">Mandatory digital safety checklist confirms gloves, tongs, and eye protection before opening bags.</p>
+                </div>
+                <div class="glass-panel p-5 rounded-2xl border-t-2 border-teal-400">
+                    <div class="text-2xl mb-2">2️⃣</div>
+                    <h4 class="font-black text-sm text-white">In-Browser Edge AI</h4>
+                    <p class="text-xs text-slate-400 mt-1">TensorFlow.js runs 100% locally in browser. Zero cloud AI costs, instant inference, and offline capability.</p>
+                </div>
+                <div class="glass-panel p-5 rounded-2xl border-t-2 border-cyan-400">
+                    <div class="text-2xl mb-2">3️⃣</div>
+                    <h4 class="font-black text-sm text-white">Cryptographic QR</h4>
+                    <p class="text-xs text-slate-400 mt-1">Printable hazard tags encode unique sack ID, hazard classification, risk color code, and zone origin.</p>
+                </div>
+                <div class="glass-panel p-5 rounded-2xl border-t-2 border-purple-400">
+                    <div class="text-2xl mb-2">4️⃣</div>
+                    <h4 class="font-black text-sm text-white">Vernacular Audio</h4>
+                    <p class="text-xs text-slate-400 mt-1">Autoplays native spoken alerts in Tamil, Hindi, or English for illiterate or fast-paced facility sorters.</p>
+                </div>
+            </div>
+
+            <!-- Workflow Diagram Box -->
+            <div class="p-4 rounded-2xl bg-slate-900 border border-slate-800 text-center font-mono text-xs text-emerald-300 flex flex-wrap items-center justify-center gap-2 sm:gap-4">
+                <span>[1. Bag Registration]</span> &rarr;
+                <span>[2. PPE Safety Lock]</span> &rarr;
+                <span>[3. AI Conveyor Scan]</span> &rarr;
+                <span>[4. QR Tag Printed]</span> &rarr;
+                <span>[5. Inbound QR Scan]</span> &rarr;
+                <span>[6. Voice Hazard Alert]</span> &rarr;
+                <span>[7. Tongs Segregation & Final Disposal]</span>
+            </div>
+        </section>
+
+        <!-- SLIDE 4: COLLECTOR PROTOTYPE HIGHLIGHT -->
+        <section class="slide flex-col justify-center space-y-6" data-index="4">
+            <div class="border-b border-slate-800 pb-4 flex items-center justify-between">
+                <div>
+                    <span class="text-xs font-black uppercase tracking-wider text-cyan-400">Prototype Demo &bull; Collector Portal</span>
+                    <h2 class="text-3xl sm:text-4xl font-black text-white mt-1">Zero-Touch Intake & Conveyor AI</h2>
+                </div>
+                <span class="px-3 py-1 bg-cyan-500/20 text-cyan-300 border border-cyan-500/30 rounded-xl text-xs font-bold font-mono">Role: collector (EMP101)</span>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+                <div class="space-y-4">
+                    <div class="glass-panel p-4 rounded-2xl">
+                        <span class="text-xs font-bold text-amber-400 uppercase">Feature 1</span>
+                        <h4 class="text-sm font-bold text-white mt-0.5">Mandatory No-Touch PPE Check</h4>
+                        <p class="text-xs text-slate-400 mt-1">Workers must confirm 5 safety requirements (no bare hands, heavy gauntlets, mask, cutter/tongs ready) before the conveyor station unlocks.</p>
+                    </div>
+
+                    <div class="glass-panel p-4 rounded-2xl">
+                        <span class="text-xs font-bold text-emerald-400 uppercase">Feature 2</span>
+                        <h4 class="text-sm font-bold text-white mt-0.5">In-Browser TensorFlow.js Hazard Scanning</h4>
+                        <p class="text-xs text-slate-400 mt-1">Captures frames every 3 seconds, flashing and animating a CSS conveyor belt. Identifies batteries, sharps, glass, CFLs, and chemical bottles locally.</p>
+                    </div>
+
+                    <div class="glass-panel p-4 rounded-2xl">
+                        <span class="text-xs font-bold text-purple-400 uppercase">Feature 3</span>
+                        <h4 class="text-sm font-bold text-white mt-0.5">Automated Risk Scoring & QR Tag Generation</h4>
+                        <p class="text-xs text-slate-400 mt-1">Sack risk escalates to highest detected severity (HIGH/MEDIUM/LOW). Generates printable labels with unique QR custody tokens.</p>
+                    </div>
+                </div>
+
+                <!-- Dual Screenshot Grid -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div class="h-64 screenshot-placeholder rounded-2xl flex flex-col items-center justify-center p-4 text-center">
+                        <span class="text-3xl mb-1">📸</span>
+                        <span class="text-xs font-bold text-sky-400 uppercase">Screenshot 3: No-Touch PPE Gate</span>
+                        <span class="text-[11px] text-slate-400 mt-1">Capture `/collector/bag/<id>/ppe` showing the 5 checkboxes and yellow warning banner</span>
+                    </div>
+
+                    <div class="h-64 screenshot-placeholder rounded-2xl flex flex-col items-center justify-center p-4 text-center">
+                        <span class="text-3xl mb-1">📸</span>
+                        <span class="text-xs font-bold text-sky-400 uppercase">Screenshot 4: Conveyor Station AI Scan</span>
+                        <span class="text-[11px] text-slate-400 mt-1">Capture `/collector/bag/<id>/station` showing camera/simulation, countdown, and live predictions</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 5: DISPOSER PROTOTYPE HIGHLIGHT -->
+        <section class="slide flex-col justify-center space-y-6" data-index="5">
+            <div class="border-b border-slate-800 pb-4 flex items-center justify-between">
+                <div>
+                    <span class="text-xs font-black uppercase tracking-wider text-emerald-400">Prototype Demo &bull; Disposer Portal</span>
+                    <h2 class="text-3xl sm:text-4xl font-black text-white mt-1">Voice Warnings & Certified Containment</h2>
+                </div>
+                <span class="px-3 py-1 bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 rounded-xl text-xs font-bold font-mono">Role: disposer (EMP201)</span>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+                <div class="space-y-4">
+                    <div class="glass-panel p-4 rounded-2xl border-l-4 border-rose-500">
+                        <span class="text-xs font-bold text-rose-400 uppercase">Feature 1</span>
+                        <h4 class="text-sm font-bold text-white mt-0.5">Autonomous Multilingual Voice Alert</h4>
+                        <p class="text-xs text-slate-400 mt-1">Immediately speaks the highest hazard alert in Tamil, Hindi, or English (e.g. <em>"எச்சரிக்கை. இந்த பையில் பேட்டரிகள் உள்ளன..."</em>). Sorters don't need to read.</p>
+                    </div>
+
+                    <div class="glass-panel p-4 rounded-2xl border-l-4 border-teal-500">
+                        <span class="text-xs font-bold text-teal-400 uppercase">Feature 2</span>
+                        <h4 class="text-sm font-bold text-white mt-0.5">Actionable Tool & Container Instructions</h4>
+                        <p class="text-xs text-slate-400 mt-1">Provides localized pickup protocol (e.g. "Use long mechanical tongs, never bare hands") and color-coded receptacle guidance.</p>
+                    </div>
+
+                    <div class="glass-panel p-4 rounded-2xl border-l-4 border-purple-500">
+                        <span class="text-xs font-bold text-purple-400 uppercase">Feature 3</span>
+                        <h4 class="text-sm font-bold text-white mt-0.5">Enforced Segregation & QR Tag Retirement</h4>
+                        <p class="text-xs text-slate-400 mt-1">Disposal action is locked until every hazardous object is checked off. Disposer permanently retires or disables the QR tag with audit trail.</p>
+                    </div>
+                </div>
+
+                <!-- Dual Screenshot Grid -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div class="h-64 screenshot-placeholder rounded-2xl flex flex-col items-center justify-center p-4 text-center">
+                        <span class="text-3xl mb-1">📸</span>
+                        <span class="text-xs font-bold text-sky-400 uppercase">Screenshot 5: Bag Safety Detail & Voice Alert</span>
+                        <span class="text-[11px] text-slate-400 mt-1">Capture `/disposer/bag/<id>` showing the Red hazard banner, hazard table, and voice player button</span>
+                    </div>
+
+                    <div class="h-64 screenshot-placeholder rounded-2xl flex flex-col items-center justify-center p-4 text-center">
+                        <span class="text-3xl mb-1">📸</span>
+                        <span class="text-xs font-bold text-sky-400 uppercase">Screenshot 6: Segregation Checklist & Modal</span>
+                        <span class="text-[11px] text-slate-400 mt-1">Capture `/disposer/bag/<id>` showing segregation checkboxes and the "Delete QR" disposal modal</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 6: ADMIN OPERATIONS & BENCHMARKING -->
+        <section class="slide flex-col justify-center space-y-6" data-index="6">
+            <div class="border-b border-slate-800 pb-4 flex items-center justify-between">
+                <div>
+                    <span class="text-xs font-black uppercase tracking-wider text-purple-400">Prototype Demo &bull; Admin Intelligence</span>
+                    <h2 class="text-3xl sm:text-4xl font-black text-white mt-1">Operations, Hotspots & AI Benchmarking</h2>
+                </div>
+                <span class="px-3 py-1 bg-purple-500/20 text-purple-300 border border-purple-500/30 rounded-xl text-xs font-bold font-mono">Role: admin (EMP001)</span>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+                <div class="space-y-4">
+                    <div class="glass-panel p-4 rounded-2xl">
+                        <span class="text-xs font-bold text-purple-400 uppercase">Feature 1</span>
+                        <h4 class="text-sm font-bold text-white mt-0.5">Real-Time Operational Dashboard & Hotspots</h4>
+                        <p class="text-xs text-slate-400 mt-1">6 executive KPI cards, 15-day stacked hazard distribution chart, and per-zone hazard density graphs (Chart.js).</p>
+                    </div>
+
+                    <div class="glass-panel p-4 rounded-2xl">
+                        <span class="text-xs font-bold text-amber-400 uppercase">Feature 2</span>
+                        <h4 class="text-sm font-bold text-white mt-0.5">Live Coordination Gaps Engine</h4>
+                        <p class="text-xs text-slate-400 mt-1">Detects bags in transit exceeding safety threshold (&gt;10 min), unreviewed AI detections, and unlabeled bags with suggested actions.</p>
+                    </div>
+
+                    <div class="glass-panel p-4 rounded-2xl">
+                        <span class="text-xs font-bold text-emerald-400 uppercase">Feature 3</span>
+                        <h4 class="text-sm font-bold text-white mt-0.5">Client-Side AI Model Benchmark & Confusion Matrix</h4>
+                        <p class="text-xs text-slate-400 mt-1">Runs browser TensorFlow.js on `labels.csv` to calculate accuracy, per-class precision/recall, and service effectiveness telemetry.</p>
+                    </div>
+                </div>
+
+                <!-- Dual Screenshot Grid -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div class="h-64 screenshot-placeholder rounded-2xl flex flex-col items-center justify-center p-4 text-center">
+                        <span class="text-3xl mb-1">📸</span>
+                        <span class="text-xs font-bold text-sky-400 uppercase">Screenshot 7: Admin Dashboard & Charts</span>
+                        <span class="text-[11px] text-slate-400 mt-1">Capture `/admin/dashboard` showing KPI metrics, 15-Day Hazard Chart, and Zone Hotspot View</span>
+                    </div>
+
+                    <div class="h-64 screenshot-placeholder rounded-2xl flex flex-col items-center justify-center p-4 text-center">
+                        <span class="text-3xl mb-1">📸</span>
+                        <span class="text-xs font-bold text-sky-400 uppercase">Screenshot 8: AI Evaluation & Confusion Matrix</span>
+                        <span class="text-[11px] text-slate-400 mt-1">Capture `/admin/evaluation` showing Confusion Matrix, Precision/Recall, and Service Telemetry</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 7: IMPACT & ROADMAP -->
+        <section class="slide flex-col justify-center space-y-6" data-index="7">
+            <div class="border-b border-slate-800 pb-4">
+                <span class="text-xs font-black uppercase tracking-wider text-emerald-400">Impact & The Future</span>
+                <h2 class="text-3xl sm:text-4xl font-black text-white mt-1">Transforming Waste Worker Safety</h2>
+                <p class="text-sm text-slate-400 mt-1">Measurable social, environmental, and technological impact.</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                <div class="glass-panel p-6 rounded-3xl border-t-2 border-emerald-400">
+                    <span class="text-3xl">🩸 &rarr; 🛡️</span>
+                    <h4 class="font-bold text-base text-white mt-3">Zero Preventable Injuries</h4>
+                    <p class="text-xs text-slate-400 mt-2 leading-relaxed">
+                        Mandatory no-touch barriers and instant vernacular voice alerts eliminate accidental needle punctures, acid burns, and glass cuts.
+                    </p>
+                </div>
+
+                <div class="glass-panel p-6 rounded-3xl border-t-2 border-teal-400">
+                    <span class="text-3xl">🔋 &rarr; 🚒</span>
+                    <h4 class="font-bold text-base text-white mt-3">Fire & Pollution Mitigation</h4>
+                    <p class="text-xs text-slate-400 mt-2 leading-relaxed">
+                        Pre-segregates lithium batteries and CFL mercury bulbs before compactor trucks compress waste, preventing disastrous landfill and truck fires.
+                    </p>
+                </div>
+
+                <div class="glass-panel p-6 rounded-3xl border-t-2 border-cyan-400">
+                    <span class="text-3xl">🌐 &rarr; ⚡</span>
+                    <h4 class="font-bold text-base text-white mt-3">Zero Cloud Cost Scalability</h4>
+                    <p class="text-xs text-slate-400 mt-2 leading-relaxed">
+                        100% browser-based inference means municipal bodies can deploy SafeSack 360 across thousands of collection docks with zero recurrent API bills.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Future Roadmap Strip -->
+            <div class="glass-panel p-5 rounded-2xl mt-4">
+                <div class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">Future Roadmap</div>
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs">
+                    <div class="text-slate-300"><strong class="text-emerald-400">1. Edge IoT Cameras:</strong> Low-cost solar ESP32 cameras mounted directly onto municipal collection pushcarts.</div>
+                    <div class="text-slate-300"><strong class="text-teal-400">2. Offline PWA:</strong> Progressive Web App with background SQLite sync for rural dead-zones.</div>
+                    <div class="text-slate-300"><strong class="text-cyan-400">3. Robotic Sorter Arm:</strong> Direct WebSocket control of pneumatic sorting ejectors.</div>
+                </div>
+            </div>
+
+            <div class="text-center pt-2">
+                <span class="text-xs text-slate-500 font-mono">SafeSack 360 &bull; Built with pride by Team Twin Titans (Sahana S & Varsha Sanmuhi G)</span>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Bottom Controls & Keybinding Helper -->
+    <footer class="flex flex-col sm:flex-row items-center justify-between max-w-7xl w-full mx-auto pt-4 border-t border-slate-800 text-xs text-slate-500 gap-2">
+        <div>
+            Use <kbd class="px-2 py-0.5 rounded bg-slate-800 text-slate-300 font-mono text-[11px] border border-slate-700">Left &larr;</kbd> and <kbd class="px-2 py-0.5 rounded bg-slate-800 text-slate-300 font-mono text-[11px] border border-slate-700">Right &rarr;</kbd> arrows to navigate. Press <kbd class="px-2 py-0.5 rounded bg-slate-800 text-slate-300 font-mono text-[11px] border border-slate-700">Ctrl + P</kbd> to print / export PDF.
+        </div>
+        <div class="flex items-center space-x-2">
+            <button onclick="window.print()" class="px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 font-semibold transition">
+                🖨️ Export PDF
+            </button>
+        </div>
+    </footer>
+
+    <!-- Interactive Navigation Script -->
+    <script>
+        let currentIdx = 1;
+        const totalSlides = 7;
+
+        function showSlide(idx) {
+            if (idx < 1) idx = 1;
+            if (idx > totalSlides) idx = totalSlides;
+            currentIdx = idx;
+
+            document.querySelectorAll('.slide').forEach(slide => {
+                slide.classList.remove('active');
+                if (parseInt(slide.getAttribute('data-index')) === currentIdx) {
+                    slide.classList.add('active');
+                }
+            });
+
+            document.getElementById('current-slide').textContent = currentIdx;
+        }
+
+        function nextSlide() {
+            if (currentIdx < totalSlides) showSlide(currentIdx + 1);
+        }
+
+        function prevSlide() {
+            if (currentIdx > 1) showSlide(currentIdx - 1);
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') {
+                nextSlide();
+            } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+                prevSlide();
+            }
+        });
+    </script>
+</body>
+</html>
